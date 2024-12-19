@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pkReCMFh/PE=",
+  "dgSpecHash": "3Y65mwYEEmI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\OnlineStore.Domain.csproj",
+  "projectFilePath": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Domain\\OnlineStore.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

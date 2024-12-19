@@ -35,8 +35,7 @@ namespace OnlineStore.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Nawigacja między stronami", "  Jako użytkownik aplikacji\r\n  Chcę móc przechodzić między stronami\r\n  Aby uzyska" +
-                    "ć dostęp do różnych części aplikacji", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Nawigacja między stronami", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,13 +74,17 @@ namespace OnlineStore.Tests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przejście na stronę kategorii")]
-        public void PrzejscieNaStroneKategorii()
+        [NUnit.Framework.DescriptionAttribute("Przejście na stronę <Page>")]
+        [NUnit.Framework.TestCaseAttribute("Categories", null)]
+        [NUnit.Framework.TestCaseAttribute("Products", null)]
+        [NUnit.Framework.TestCaseAttribute("Orders", null)]
+        public void PrzejscieNaStronePage(string page, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przejście na stronę kategorii", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+            argumentsOfScenario.Add("Page", page);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przejście na stronę <Page>", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 2
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -91,65 +94,11 @@ namespace OnlineStore.Tests.Features
             else
             {
                 this.ScenarioStart();
-#line 7
-    testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 3
+    testRunner.Given(string.Format("użytkownik otwiera stronę \"{0}\"", page), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
-    testRunner.Then("użytkownik powinien zobaczyć stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przejście na stronę produktów")]
-        public void PrzejscieNaStroneProduktow()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przejście na stronę produktów", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 10
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 11
-    testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 12
-    testRunner.Then("użytkownik powinien zobaczyć stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przejście na stronę zamówień")]
-        public void PrzejscieNaStroneZamowien()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przejście na stronę zamówień", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 15
-    testRunner.Given("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 16
-    testRunner.Then("użytkownik powinien zobaczyć stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 4
+    testRunner.Then(string.Format("użytkownik powinien zobaczyć stronę \"{0}\"", page), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -162,7 +111,7 @@ namespace OnlineStore.Tests.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przejście z kategorii na stronę główną", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 12
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -172,13 +121,13 @@ namespace OnlineStore.Tests.Features
             else
             {
                 this.ScenarioStart();
-#line 19
+#line 13
     testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 20
+#line 14
     testRunner.When("użytkownik klika przycisk \"Home\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 15
     testRunner.Then("użytkownik powinien zobaczyć stronę \"Home\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

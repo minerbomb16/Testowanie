@@ -20,8 +20,8 @@ namespace OnlineStore.Tests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Testowanie przycisków Edit, Details i Delete na stronie kategorii oraz produktów")]
-    public partial class TestowaniePrzyciskowEditDetailsIDeleteNaStronieKategoriiOrazProduktowFeature
+    [NUnit.Framework.DescriptionAttribute("Testowanie przycisków Edit, Details i Delete")]
+    public partial class TestowaniePrzyciskowEditDetailsIDeleteFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -35,9 +35,7 @@ namespace OnlineStore.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Testowanie przycisków Edit, Details i Delete na stronie kategorii oraz produktów", "  Jako użytkownik aplikacji\r\n  Chcę móc używać przycisków Edit, Details i Delete\r" +
-                    "\n  Aby uzyskać dostęp do odpowiednich podstron dla kategorii, produktów i zamówi" +
-                    "eń", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Testowanie przycisków Edit, Details i Delete", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -77,21 +75,78 @@ namespace OnlineStore.Tests.Features
         
         public virtual void FeatureBackground()
         {
-#line 6
+#line 2
   #line hidden
-#line 7
+#line 3
     testRunner.Given("baza danych zawiera 3 kategorie, 3 produkty i 3 zamówienia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Edit dla pierwszej kategorii")]
-        public void PrzyciskEditDlaPierwszejKategorii()
+        [NUnit.Framework.DescriptionAttribute("Przycisk <Button> dla pierwszej kategorii")]
+        [NUnit.Framework.CategoryAttribute("categories")]
+        [NUnit.Framework.TestCaseAttribute("Edit", "edit", null)]
+        [NUnit.Framework.TestCaseAttribute("Details", "details", null)]
+        [NUnit.Framework.TestCaseAttribute("Delete", "delete", null)]
+        public void PrzyciskButtonDlaPierwszejKategorii(string button, string urlSuffix, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] @__tags = new string[] {
+                    "categories"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Edit dla pierwszej kategorii", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("Button", button);
+            argumentsOfScenario.Add("urlSuffix", urlSuffix);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk <Button> dla pierwszej kategorii", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 6
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2
+  this.FeatureBackground();
+#line hidden
+#line 7
+    testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 8
+    testRunner.When(string.Format("użytkownik klika przycisk \"{0}\" dla pierwszej kategorii", button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 9
+    testRunner.Then(string.Format("użytkownik powinien zostać przeniesiony na stronę \"/categories/{0}/1\"", urlSuffix), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Przycisk <Button> dla pierwszego produktu")]
+        [NUnit.Framework.CategoryAttribute("products")]
+        [NUnit.Framework.TestCaseAttribute("Edit", "edit", null)]
+        [NUnit.Framework.TestCaseAttribute("Details", "details", null)]
+        [NUnit.Framework.TestCaseAttribute("Delete", "delete", null)]
+        public void PrzyciskButtonDlaPierwszegoProduktu(string button, string urlSuffix, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "products"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Button", button);
+            argumentsOfScenario.Add("urlSuffix", urlSuffix);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk <Button> dla pierwszego produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 18
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -101,281 +156,62 @@ namespace OnlineStore.Tests.Features
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 2
   this.FeatureBackground();
 #line hidden
-#line 10
-    testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 11
-    testRunner.When("użytkownik klika przycisk \"Edit\" dla pierwszej kategorii", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 12
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/categories/edit/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Details dla pierwszej kategorii")]
-        public void PrzyciskDetailsDlaPierwszejKategorii()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Details dla pierwszej kategorii", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 15
-    testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 16
-    testRunner.When("użytkownik klika przycisk \"Details\" dla pierwszej kategorii", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 17
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/categories/details/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Delete dla pierwszej kategorii")]
-        public void PrzyciskDeleteDlaPierwszejKategorii()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Delete dla pierwszej kategorii", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 19
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
+    testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
-    testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.When(string.Format("użytkownik klika przycisk \"{0}\" dla pierwszego produktu", button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 21
-    testRunner.When("użytkownik klika przycisk \"Delete\" dla pierwszej kategorii", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 22
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/categories/delete/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("użytkownik powinien zostać przeniesiony na stronę \"/products/{0}/1\"", urlSuffix), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Edit dla pierwszego produktu")]
-        public void PrzyciskEditDlaPierwszegoProduktu()
+        [NUnit.Framework.DescriptionAttribute("Przycisk <Button> dla pierwszego zamówienia")]
+        [NUnit.Framework.CategoryAttribute("orders")]
+        [NUnit.Framework.TestCaseAttribute("Edit", "edit", null)]
+        [NUnit.Framework.TestCaseAttribute("Details", "details", null)]
+        [NUnit.Framework.TestCaseAttribute("Delete", "delete", null)]
+        public void PrzyciskButtonDlaPierwszegoZamowienia(string button, string urlSuffix, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] @__tags = new string[] {
+                    "orders"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Edit dla pierwszego produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 24
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 25
-    testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 26
-    testRunner.When("użytkownik klika przycisk \"Edit\" dla pierwszego produktu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 27
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/products/edit/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Details dla pierwszego produktu")]
-        public void PrzyciskDetailsDlaPierwszegoProduktu()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Details dla pierwszego produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
+            argumentsOfScenario.Add("Button", button);
+            argumentsOfScenario.Add("urlSuffix", urlSuffix);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk <Button> dla pierwszego zamówienia", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
-    testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 2
+  this.FeatureBackground();
 #line hidden
 #line 31
-    testRunner.When("użytkownik klika przycisk \"Details\" dla pierwszego produktu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 32
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/products/details/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.When(string.Format("użytkownik klika przycisk \"{0}\" dla pierwszego zamówienia", button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Delete dla pierwszego produktu")]
-        public void PrzyciskDeleteDlaPierwszegoProduktu()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Delete dla pierwszego produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 35
-    testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 36
-    testRunner.When("użytkownik klika przycisk \"Delete\" dla pierwszego produktu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 37
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/products/delete/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Edit dla pierwszego zamówienia")]
-        public void PrzyciskEditDlaPierwszegoZamowienia()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Edit dla pierwszego zamówienia", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 39
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 40
-    testRunner.Given("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 41
-    testRunner.When("użytkownik klika przycisk \"Edit\" dla pierwszego zamówienia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 42
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/orders/edit/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Details dla pierwszego zamówienia")]
-        public void PrzyciskDetailsDlaPierwszegoZamowienia()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Details dla pierwszego zamówienia", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 44
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 45
-    testRunner.Given("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 46
-    testRunner.When("użytkownik klika przycisk \"Details\" dla pierwszego zamówienia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 47
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/orders/details/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Przycisk Delete dla pierwszego zamówienia")]
-        public void PrzyciskDeleteDlaPierwszegoZamowienia()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Przycisk Delete dla pierwszego zamówienia", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 49
-  this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-  this.FeatureBackground();
-#line hidden
-#line 50
-    testRunner.Given("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 51
-    testRunner.When("użytkownik klika przycisk \"Delete\" dla pierwszego zamówienia", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 52
-    testRunner.Then("użytkownik powinien zostać przeniesiony na stronę \"/orders/delete/1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 33
+    testRunner.Then(string.Format("użytkownik powinien zostać przeniesiony na stronę \"/orders/{0}/1\"", urlSuffix), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

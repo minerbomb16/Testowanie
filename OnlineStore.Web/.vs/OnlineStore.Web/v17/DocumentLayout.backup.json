@@ -1,34 +1,85 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Web\\",
+  "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\stepdefinitions\\buttonssteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\customwebapplicationfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\features\\buttons.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\infrastructure\\testdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\infrastructure\\testdatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\appsettings.test.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\stepdefinitions\\navigationsteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\testsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\features\\navigation.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\stepdefinitions\\buttonssteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF59545D-1E7A-441F-ADC0-137C83F8F6FD}|..\\OnlineStore.Domain\\OnlineStore.Domain.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.domain\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\stepdefinitions\\navigationsteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\testsetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\stepdefinitions\\insertsteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.tests\\onlinestore.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\stepdefinitions\\databasesteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|c:\\users\\micha\\desktop\\test2\\onlinestore.web\\onlinestore.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\stepdefinitions\\hooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.web\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\features\\create.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF59545D-1E7A-441F-ADC0-137C83F8F6FD}|..\\OnlineStore.Domain\\OnlineStore.Domain.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.domain\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\features\\navigation.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799ED45F-00A0-4DFB-9D68-C185EE575C5B}|..\\OnlineStore.Tests\\OnlineStore.Tests.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.tests\\features\\buttons.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|c:\\users\\micha\\desktop\\testowanie\\onlinestore.web\\onlinestore.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{2CB67DCD-E192-46F7-9E7A-0BA989C6DE31}|OnlineStore.Web.csproj|solutionrelative:onlinestore.web.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\Models\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\TestSetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,124 +89,322 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Category.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Domain\\Models\\Category.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
-              "RelativeToolTip": "..\\OnlineStore.Domain\\Models\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T20:14:50.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TestDatabase.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAuwFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:42:51.971Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "TestSetup.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\TestSetup.cs",
               "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\TestSetup.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\TestSetup.cs",
               "RelativeToolTip": "..\\OnlineStore.Tests\\TestSetup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:42:44.734Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Buttons.feature",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Features\\Buttons.feature",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\Features\\Buttons.feature",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-17T19:34:32.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ButtonsSteps.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAuwEAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:32:59.411Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NavigationSteps.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T19:32:50.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Navigation.feature",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Features\\Navigation.feature",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\Features\\Navigation.feature",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-17T19:32:47.208Z",
+              "WhenOpened": "2024-12-19T17:07:34.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "OnlineStore.Tests",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
-              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
-              "RelativeToolTip": "..\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-17T19:23:45.525Z",
+              "Title": "DatabaseSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\DatabaseSteps.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\DatabaseSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\DatabaseSteps.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\DatabaseSteps.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAmwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:30:22.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InsertSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\InsertSteps.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\InsertSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\InsertSteps.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\InsertSteps.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:30:08.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestDatabase.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAcwDQAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:28:46.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ButtonsSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAuwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:22:06.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NavigationSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:56:56.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Test.json",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\appsettings.Test.json",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\appsettings.Test.json",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\appsettings.Test.json",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\appsettings.Test.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-19T17:00:18.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomWebApplicationFactory.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\CustomWebApplicationFactory.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\CustomWebApplicationFactory.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\CustomWebApplicationFactory.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\CustomWebApplicationFactory.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T17:02:46.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "Hooks.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\Hooks.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\StepDefinitions\\Hooks.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\StepDefinitions\\Hooks.cs",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\StepDefinitions\\Hooks.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:51:12.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.feature",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Create.feature",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Features\\Create.feature",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Create.feature",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\Features\\Create.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-19T16:29:28.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAgwB8AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:38:23.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-19T17:00:28.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAQwKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:39:51.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Domain\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Domain\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Domain\\Models\\Category.cs",
+              "RelativeToolTip": "..\\OnlineStore.Domain\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T16:28:22.53Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Navigation.feature",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-19T16:22:11.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Buttons.feature",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "RelativeDocumentMoniker": "..\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "RelativeToolTip": "..\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-19T16:21:52.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Domain\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T20:14:50.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TestDatabase.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\Infrastructure\\TestDatabase.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAuwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T19:42:51.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TestSetup.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\TestSetup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T19:42:44.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Buttons.feature",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\Features\\Buttons.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-17T19:34:32.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ButtonsSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\StepDefinitions\\ButtonsSteps.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T19:32:59.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "NavigationSteps.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\StepDefinitions\\NavigationSteps.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T19:32:50.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Navigation.feature",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\Features\\Navigation.feature",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-12-17T19:32:47.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "OnlineStore.Tests.csproj",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+              "RelativeDocumentMoniker": "..\\..\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+              "RelativeToolTip": "..\\..\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-17T19:23:45.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "OnlineStore.Web.csproj",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Web\\OnlineStore.Web.csproj",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\OnlineStore.Web.csproj",
               "RelativeDocumentMoniker": "OnlineStore.Web.csproj",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Web\\OnlineStore.Web.csproj",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\OnlineStore.Web.csproj",
               "RelativeToolTip": "OnlineStore.Web.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-17T18:07:40.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T18:07:40.205Z"
             }
           ]
         }

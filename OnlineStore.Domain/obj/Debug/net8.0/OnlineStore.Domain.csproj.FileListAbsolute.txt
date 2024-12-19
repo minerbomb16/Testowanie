@@ -46,3 +46,16 @@ C:\Users\micha\Desktop\Test2\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Dom
 C:\Users\micha\Desktop\Test2\OnlineStore.Domain\obj\Debug\net8.0\refint\OnlineStore.Domain.dll
 C:\Users\micha\Desktop\Test2\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.pdb
 C:\Users\micha\Desktop\Test2\OnlineStore.Domain\obj\Debug\net8.0\ref\OnlineStore.Domain.dll
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.deps.json
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.dll
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.pdb
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.csproj.AssemblyReference.cache
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.AssemblyInfoInputs.cache
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.AssemblyInfo.cs
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.csproj.CoreCompileInputs.cache
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.sourcelink.json
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.dll
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\refint\OnlineStore.Domain.dll
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.pdb
+C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\ref\OnlineStore.Domain.dll

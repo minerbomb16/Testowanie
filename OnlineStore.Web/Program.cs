@@ -26,11 +26,17 @@ builder.Services.AddCors(options =>
 
 
 
-// Configure Entity Framework Core with SQL Server.
-builder.Services.AddDbContext<OnlineStoreContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB"))
-           //.EnableSensitiveDataLogging(builder.Environment.IsDevelopment()) // Enable only in development
-           .LogTo(Console.WriteLine, LogLevel.Information)); // Log queries
+if (builder.Environment.IsEnvironment("Test"))
+{
+    builder.Services.AddDbContext<OnlineStoreContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreTestDB")));
+}
+else
+{
+    builder.Services.AddDbContext<OnlineStoreContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB")));
+}
+
 
 // Add logging configuration.
 builder.Logging.ClearProviders();

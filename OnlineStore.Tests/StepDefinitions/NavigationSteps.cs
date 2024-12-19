@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Testing;
+using System;
 using OnlineStore.Web;
 
 namespace OnlineStore.Tests.StepDefinitions
@@ -11,60 +11,69 @@ namespace OnlineStore.Tests.StepDefinitions
     public class NavigationSteps
     {
         private readonly HttpClient _client;
-        private HttpResponseMessage _response;
+        private readonly ScenarioContext _ctx;
 
-        public NavigationSteps()
+        public NavigationSteps(ScenarioContext scenarioContext)
         {
-            // Konfiguracja WebApplicationFactory dla testów
-            var factory = new WebApplicationFactory<Program>();
-            _client = factory.CreateClient(new WebApplicationFactoryClientOptions
+            _ctx = scenarioContext;
+            var factory = (CustomWebApplicationFactory)_ctx["factory"];
+            _client = factory.CreateClient(new Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryClientOptions
             {
-                AllowAutoRedirect = true // Zezwalanie na przekierowania
+                AllowAutoRedirect = true
             });
         }
 
         [Given(@"użytkownik otwiera stronę ""(.*)""")]
-        public async Task GivenUzytkownikOtwieraStrone(string page)
+        public async Task OpenPage(string page)
         {
-            var url = page.ToLower() switch
-            {
-                "categories" => "/categories",
-                "products" => "/products",
-                "orders" => "/orders",
-                "home" => "/",
-                _ => throw new ArgumentException("Nieznana strona: " + page)
-            };
-
-            _response = await _client.GetAsync(url);
-            Assert.IsTrue(_response.IsSuccessStatusCode, $"Nie udało się otworzyć strony: {url}");
-        }
-
-        [When(@"użytkownik klika przycisk ""(.*)""")]
-        public async Task WhenUzytkownikKlikaPrzycisk(string button)
-        {
-            var url = button.ToLower() switch
-            {
-                "home" => "/",
-                _ => throw new ArgumentException("Nieznany przycisk: " + button)
-            };
-
-            _response = await _client.GetAsync(url);
+            var url = GetPageUrl(page);
+            var response = await _client.GetAsync(url);
+            Assert.IsTrue(response.IsSuccessStatusCode, $"Nie udało się otworzyć strony: {url}");
+            _ctx["response"] = response;
         }
 
         [Then(@"użytkownik powinien zobaczyć stronę ""(.*)""")]
-        public void ThenUzytkownikPowinienZobaczycStrone(string expectedPage)
+        [Then(@"użytkownik powinien zostać przeniesiony na stronę ""(.*)""")]
+        public void ShouldBeOnPage(string expectedPage)
         {
-            var expectedUrl = expectedPage.ToLower() switch
-            {
-                "categories" => "/categories",
-                "products" => "/products",
-                "orders" => "/orders",
-                "home" => "/",
-                _ => throw new ArgumentException("Nieznana strona: " + expectedPage)
-            };
+            HttpResponseMessage? response = null;
 
-            Assert.IsTrue(_response.RequestMessage.RequestUri.AbsolutePath.Equals(expectedUrl),
-                $"Oczekiwano: {expectedUrl}, ale otrzymano: {_response.RequestMessage.RequestUri.AbsolutePath}");
+            if (!_ctx.TryGetValue("response", out var responseObj))
+            {
+                Assert.Fail("Brak obiektu HttpResponseMessage w ScenarioContext.");
+            }
+            else if (responseObj is HttpResponseMessage httpResponse)
+            {
+                response = httpResponse;
+            }
+            else
+            {
+                Assert.Fail("Obiekt w ScenarioContext nie jest typu HttpResponseMessage.");
+            }
+
+            Assert.IsNotNull(response, "Response jest null.");
+
+            string Normalize(string path) => path.TrimStart('/').ToLowerInvariant();
+            var actualPath = Normalize(response!.RequestMessage?.RequestUri?.AbsolutePath ?? string.Empty);
+
+            if (expectedPage.Equals("Home", StringComparison.InvariantCultureIgnoreCase))
+            {
+                expectedPage = "";
+            }
+
+            var expectedPath = Normalize(expectedPage);
+
+            Assert.That(actualPath, Is.EqualTo(expectedPath),
+                $"Oczekiwano: {expectedPage}, otrzymano: {actualPath}");
         }
+
+        private string GetPageUrl(string pageName) => pageName.ToLower() switch
+        {
+            "categories" => "/categories",
+            "products" => "/products",
+            "orders" => "/orders",
+            "home" => "/",
+            _ => throw new ArgumentException($"Nieznana strona: {pageName}")
+        };
     }
 }

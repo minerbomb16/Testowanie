@@ -13294,6 +13294,8 @@
     "net8.0": [
       "Microsoft.AspNetCore.Mvc.Testing >= 7.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.0",
+      "Microsoft.EntityFrameworkCore.InMemory >= 9.0.0",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "NUnit >= 3.14.0",
@@ -13311,11 +13313,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
       "projectName": "OnlineStore.Tests",
-      "projectPath": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
+      "projectPath": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\OnlineStore.Tests.csproj",
       "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Tests\\obj\\",
+      "outputPath": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -13337,8 +13339,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Web\\OnlineStore.Web.csproj": {
-              "projectPath": "C:\\Users\\micha\\Desktop\\Test2\\OnlineStore.Web\\OnlineStore.Web.csproj"
+            "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\OnlineStore.Web.csproj": {
+              "projectPath": "C:\\Users\\micha\\Desktop\\Testowanie\\OnlineStore.Web\\OnlineStore.Web.csproj"
             }
           }
         }
@@ -13364,6 +13366,14 @@
             "version": "[7.0.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[9.0.0, )"
           },

@@ -2,9 +2,9 @@
 using NUnit.Framework;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Testing;
-using OnlineStore.Web;
-using OnlineStore.Tests.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -12,72 +12,91 @@ namespace OnlineStore.Tests.StepDefinitions
     public class ButtonsSteps
     {
         private readonly HttpClient _client;
-        private HttpResponseMessage _response;
-        private readonly TestDatabase _database;
+        private readonly ScenarioContext _ctx;
 
-        public ButtonsSteps()
+        public ButtonsSteps(ScenarioContext scenarioContext)
         {
-            _database = new TestDatabase();
-            var factory = new WebApplicationFactory<Program>();
+            _ctx = scenarioContext;
+
+            // Pobieramy fabrykę z ScenarioContext
+            var factory = (CustomWebApplicationFactory)_ctx["factory"];
             _client = factory.CreateClient();
         }
 
-        [Given(@"baza danych zawiera 3 kategorie, 3 produkty i 3 zamówienia")]
-        public void GivenBazaDanychZawieraTrzyKategorieIProdukty()
-        {
-            Assert.IsNotNull(_database.Context, "Baza danych nie została poprawnie utworzona.");
-        }
-
-        // Kroki dla kategorii
         [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszej kategorii")]
-        public async Task WhenUzytkownikKlikniePrzyciskDlaPierwszejKategorii(string button)
+        public async Task WhenUserClicksButtonForFirstCategory(string button)
         {
-            var action = button.ToLower() switch
-            {
-                "edit" => "/categories/edit/1",
-                "details" => "/categories/details/1",
-                "delete" => "/categories/delete/1",
-                _ => throw new ArgumentException($"Nieznany przycisk: {button}")
-            };
-
-            _response = await _client.GetAsync(action);
+            var action = GetUrl("categories", button);
+            await SendRequestAndStoreResponse(action, HttpMethod.Get);
         }
 
-        // Kroki dla produktów
         [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszego produktu")]
-        public async Task WhenUzytkownikKlikniePrzyciskDlaPierwszegoProduktu(string button)
+        public async Task WhenUserClicksButtonForFirstProduct(string button)
         {
-            var action = button.ToLower() switch
-            {
-                "edit" => "/products/edit/1",
-                "details" => "/products/details/1",
-                "delete" => "/products/delete/1",
-                _ => throw new ArgumentException($"Nieznany przycisk: {button}")
-            };
-
-            _response = await _client.GetAsync(action);
+            var action = GetUrl("products", button);
+            await SendRequestAndStoreResponse(action, HttpMethod.Get);
         }
 
-        // Kroki dla zamówień
         [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszego zamówienia")]
-        public async Task WhenUzytkownikKlikniePrzyciskDlaPierwszegoZamowienia(string button)
+        public async Task WhenUserClicksButtonForFirstOrder(string button)
         {
-            var action = button.ToLower() switch
-            {
-                "edit" => "/orders/edit/1",
-                "details" => "/orders/details/1",
-                "delete" => "/orders/delete/1",
-                _ => throw new ArgumentException($"Nieznany przycisk: {button}")
-            };
-
-            _response = await _client.GetAsync(action);
+            var action = GetUrl("orders", button);
+            await SendRequestAndStoreResponse(action, HttpMethod.Get);
         }
 
-        [Then(@"użytkownik powinien zostać przeniesiony na stronę ""(.*)""")]
-        public void ThenUzytkownikPowinienZostacPrzeniesionyNaStrone(string expectedUrl)
+        [When(@"użytkownik klika przycisk ""(.*)""")]
+        public async Task WhenUserClicksGlobalButton(string button)
         {
-            Assert.IsTrue(_response.RequestMessage.RequestUri.AbsolutePath.Equals(expectedUrl),
-                $"Oczekiwano: {expectedUrl}, ale otrzymano: {_response.RequestMessage.RequestUri.AbsolutePath}");
+            if (button.Equals("Home", StringComparison.OrdinalIgnoreCase))
+            {
+                await SendRequestAndStoreResponse("/", HttpMethod.Get);
+            }
+            else if (button.Equals("Create New", StringComparison.OrdinalIgnoreCase))
+            {
+                await SendRequestAndStoreResponse("/categories/create", HttpMethod.Get);
+            }
+            else if (button.Equals("Create", StringComparison.OrdinalIgnoreCase))
+            {
+                await PostForm("/categories/create", GetFormData());
+            }
+            else
+            {
+                throw new ArgumentException($"Nieznany globalny przycisk: {button}");
+            }
+        }
+
+        private async Task SendRequestAndStoreResponse(string url, HttpMethod method)
+        {
+            var request = new HttpRequestMessage(method, url);
+            var response = await _client.SendAsync(request);
+            _ctx["response"] = response;
+        }
+
+        private async Task PostForm(string url, Dictionary<string, string> formData)
+        {
+            var content = new FormUrlEncodedContent(formData);
+            var response = await _client.PostAsync(url, content);
+            _ctx["response"] = response;
+        }
+
+        private Dictionary<string, string> GetFormData()
+        {
+            if (_ctx.TryGetValue("formData", out var formDataObj) && formDataObj is Dictionary<string, string> formData)
+            {
+                return formData;
+            }
+            return new Dictionary<string, string>();
+        }
+
+        private string GetUrl(string entity, string button)
+        {
+            return button.ToLower() switch
+            {
+                "edit" => $"/{entity}/edit/1",
+                "details" => $"/{entity}/details/1",
+                "delete" => $"/{entity}/delete/1",
+                _ => throw new ArgumentException($"Nieznany przycisk: {button}")
+            };
         }
     }
 }

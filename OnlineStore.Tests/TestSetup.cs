@@ -6,12 +6,12 @@ public class TestSetup
     [OneTimeSetUp]
     public void GlobalSetup()
     {
-        // Konfiguracja przed testami
+        // Ewentualne globalne ustawienia testów
     }
 
     [OneTimeTearDown]
     public void GlobalTeardown()
     {
-        // Czyszczenie środowiska testowego
+        // Ewentualne globalne czyszczenie
     }
 }
