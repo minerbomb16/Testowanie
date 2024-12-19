@@ -42,7 +42,7 @@ namespace OnlineStore.Web.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Order order, int[] productIds, int[] quantities)
         {
             if (productIds == null || quantities == null || productIds.Length != quantities.Length)
@@ -140,7 +140,7 @@ namespace OnlineStore.Web.Controllers
 
         // POST: Orders/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Order order, int[] productIds, int[] quantities)
         {
             if (id != order.OrderId)
@@ -234,7 +234,7 @@ namespace OnlineStore.Web.Controllers
 
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var order = await _context.Orders

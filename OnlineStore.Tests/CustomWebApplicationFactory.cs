@@ -14,7 +14,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder.UseEnvironment("Test");
         builder.ConfigureServices(services =>
         {
-            // Znajdź aktualną rejestrację OnlineStoreContext
             var descriptor = services.SingleOrDefault(
                 d => d.ServiceType == typeof(DbContextOptions<OnlineStoreContext>));
             if (descriptor != null)
@@ -23,7 +22,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.AddDbContext<OnlineStoreContext>(options =>
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=OnlineStoreTestDB;Trusted_Connection=True;"));
 
-            // Usuń filtr ValidateAntiForgeryToken z pipeline'u MVC tylko na potrzeby testów
+            // Usuń filtr ValidateAntiForgeryTokenAttribute z pipeline
             services.PostConfigure<MvcOptions>(options =>
             {
                 for (int i = options.Filters.Count - 1; i >= 0; i--)

@@ -25,5 +25,6 @@ namespace OnlineStore.Tests.StepDefinitions
             formData[fieldName] = fieldValue;
             _ctx["formData"] = formData;
         }
+
     }
 }
