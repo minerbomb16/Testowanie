@@ -1454,4 +1454,3 @@ C:\Users\micha\Desktop\Testowanie\OnlineStore.Web\obj\Debug\net8.0\refint\Online
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Web\obj\Debug\net8.0\OnlineStore.Web.pdb
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Web\obj\Debug\net8.0\OnlineStore.Web.genruntimeconfig.cache
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Web\obj\Debug\net8.0\ref\OnlineStore.Web.dll
-C:\Users\micha\Desktop\Testowanie\OnlineStore.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

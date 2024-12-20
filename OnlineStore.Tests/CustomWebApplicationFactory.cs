@@ -22,17 +22,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
             services.AddDbContext<OnlineStoreContext>(options =>
                 options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=OnlineStoreTestDB;Trusted_Connection=True;"));
 
-            // Usuń filtr ValidateAntiForgeryTokenAttribute z pipeline
-            services.PostConfigure<MvcOptions>(options =>
-            {
-                for (int i = options.Filters.Count - 1; i >= 0; i--)
-                {
-                    if (options.Filters[i].GetType().Name == "ValidateAntiForgeryTokenAttribute")
-                    {
-                        options.Filters.RemoveAt(i);
-                    }
-                }
-            });
         });
     }
 }

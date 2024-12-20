@@ -239,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("", "1", "1", "Opis produktu 1", "Specyfikacja produktu 1", "Name is required.", null)]
         [NUnit.Framework.TestCaseAttribute("Product 2", "-1", "2", "Opis produktu 2", "Specyfikacja produktu 2", "Price must be greater than zero.", null)]
         [NUnit.Framework.TestCaseAttribute("Product 3", "1", "3", "", "Specyfikacja produktu 3", "Description is required.", null)]
-        [NUnit.Framework.TestCaseAttribute("Product 4", "1", "1", "Opis produktu 4", "Specyfikacja produktu 4", "Specifications are required.", null)]
+        [NUnit.Framework.TestCaseAttribute("Product 4", "1", "1", "Opis produktu 4", "", "Specifications are required.", null)]
         public void WalidacjaTworzeniaProduktuZNieprawidlowymiDanymi(string name, string price, string categoryId, string description, string specifications, string errorMessage, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

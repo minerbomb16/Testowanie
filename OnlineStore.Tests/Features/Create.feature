@@ -66,5 +66,5 @@ Scenario: Walidacja tworzenia produktu z nieprawidłowymi danymi
     |             | 1     | 1          | Opis produktu 1   | Specyfikacja produktu 1 | Name is required.                |
     | Product 2   | -1    | 2          | Opis produktu 2   | Specyfikacja produktu 2 | Price must be greater than zero. |
     | Product 3   | 1     | 3          |                   | Specyfikacja produktu 3 | Description is required.         |
-    | Product 4   | 1     | 1          | Opis produktu 4   | Specyfikacja produktu 4 | Specifications are required.     |
+    | Product 4   | 1     | 1          | Opis produktu 4   |                         | Specifications are required.     |
 
