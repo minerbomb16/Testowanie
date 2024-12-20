@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System;
 using OnlineStore.Web;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -12,6 +13,7 @@ namespace OnlineStore.Tests.StepDefinitions
     {
         private readonly HttpClient _client;
         private readonly ScenarioContext _ctx;
+        public static string page2 = "";
 
         public NavigationSteps(ScenarioContext scenarioContext)
         {
@@ -26,6 +28,7 @@ namespace OnlineStore.Tests.StepDefinitions
         [Given(@"użytkownik otwiera stronę ""(.*)""")]
         public async Task OpenPage(string page)
         {
+            page2 = page;
             var url = GetPageUrl(page);
             var response = await _client.GetAsync(url);
             Assert.IsTrue(response.IsSuccessStatusCode, $"Nie udało się otworzyć strony: {url}");

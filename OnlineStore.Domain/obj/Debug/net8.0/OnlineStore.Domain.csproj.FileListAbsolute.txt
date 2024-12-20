@@ -59,3 +59,16 @@ C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStor
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\refint\OnlineStore.Domain.dll
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.pdb
 C:\Users\micha\Desktop\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\ref\OnlineStore.Domain.dll
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.deps.json
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.dll
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\bin\Debug\net8.0\OnlineStore.Domain.pdb
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.csproj.AssemblyReference.cache
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.AssemblyInfoInputs.cache
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.AssemblyInfo.cs
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.csproj.CoreCompileInputs.cache
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.sourcelink.json
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.dll
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\refint\OnlineStore.Domain.dll
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\OnlineStore.Domain.pdb
+C:\Users\lordk\source\repos\Testowanie\OnlineStore.Domain\obj\Debug\net8.0\ref\OnlineStore.Domain.dll

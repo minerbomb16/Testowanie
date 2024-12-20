@@ -124,6 +124,129 @@ namespace OnlineStore.Tests.Features
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Utworzenie produktu")]
+        [NUnit.Framework.TestCaseAttribute("Sausage", "7", "1", "very tasty", "makes you less hungry", null)]
+        [NUnit.Framework.TestCaseAttribute("TV", "5000", "2", "very expensive", "makes you even dumber", null)]
+        [NUnit.Framework.TestCaseAttribute("Nigger", "2137", "3", "very black", "works for free", null)]
+        public void UtworzenieProduktu(string name, string price, string categoryId, string description, string specifications, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Name", name);
+            argumentsOfScenario.Add("Price", price);
+            argumentsOfScenario.Add("CategoryId", categoryId);
+            argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Specifications", specifications);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Utworzenie produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 17
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+  this.FeatureBackground();
+#line hidden
+#line 18
+  testRunner.Given(string.Format("w bazie danych nie ma produktu \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 19
+  testRunner.And("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 20
+  testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 21
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Name\" wartość \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 22
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Price\" wartość \"{0}\"", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 23
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"CategoryId\" wartość \"{0}\"", categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 24
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Description\" wartość \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 25
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Specifications\" wartość \"{0}\"", specifications), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+  testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 27
+  testRunner.Then(string.Format("w bazie danych powinien być produkt \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Walidacja tworzenia produktu z nieprawidłowymi danymi")]
+        [NUnit.Framework.TestCaseAttribute("", "1", "1", "Opis produktu 1", "Specyfikacja produktu 1", "Name is required.", null)]
+        [NUnit.Framework.TestCaseAttribute("Product 2", "-1", "2", "Opis produktu 2", "Specyfikacja produktu 2", "Price must be greater than zero.", null)]
+        [NUnit.Framework.TestCaseAttribute("Product 3", "1", "3", "", "Specyfikacja produktu 3", "Description is required.", null)]
+        [NUnit.Framework.TestCaseAttribute("Product 4", "1", "1", "Opis produktu 4", "Specyfikacja produktu 4", "Specifications are required.", null)]
+        public void WalidacjaTworzeniaProduktuZNieprawidlowymiDanymi(string name, string price, string categoryId, string description, string specifications, string errorMessage, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Name", name);
+            argumentsOfScenario.Add("Price", price);
+            argumentsOfScenario.Add("CategoryId", categoryId);
+            argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Specifications", specifications);
+            argumentsOfScenario.Add("ErrorMessage", errorMessage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Walidacja tworzenia produktu z nieprawidłowymi danymi", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 35
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+  this.FeatureBackground();
+#line hidden
+#line 36
+  testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 37
+  testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 38
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Name\" wartość \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 39
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Price\" wartość \"{0}\"", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 40
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"CategoryId\" wartość \"{0}\"", categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Description\" wartość \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 42
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"Specifications\" wartość \"{0}\"", specifications), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 43
+  testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+  testRunner.Then(string.Format("użytkownik powinien zobaczyć komunikat o błędzie \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

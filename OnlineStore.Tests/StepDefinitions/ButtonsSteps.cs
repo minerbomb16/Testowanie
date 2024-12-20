@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
+using OnlineStore.Domain.Models;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -23,24 +24,12 @@ namespace OnlineStore.Tests.StepDefinitions
             _client = factory.CreateClient();
         }
 
-        [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszej kategorii")]
-        public async Task WhenUserClicksButtonForFirstCategory(string button)
+        [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszego elementu")]
+        public async Task WhenUserClicksButtonForFirstElement(string button)
         {
-            var action = GetUrl("categories", button);
-            await SendRequestAndStoreResponse(action, HttpMethod.Get);
-        }
-
-        [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszego produktu")]
-        public async Task WhenUserClicksButtonForFirstProduct(string button)
-        {
-            var action = GetUrl("products", button);
-            await SendRequestAndStoreResponse(action, HttpMethod.Get);
-        }
-
-        [When(@"użytkownik klika przycisk ""(.*)"" dla pierwszego zamówienia")]
-        public async Task WhenUserClicksButtonForFirstOrder(string button)
-        {
-            var action = GetUrl("orders", button);
+            var page = NavigationSteps.page2;
+            var buttonName = char.ToUpper(page[0]) + page.Substring(1);
+            var action = GetUrl(buttonName, button);
             await SendRequestAndStoreResponse(action, HttpMethod.Get);
         }
 
@@ -53,11 +42,11 @@ namespace OnlineStore.Tests.StepDefinitions
             }
             else if (button.Equals("Create New", StringComparison.OrdinalIgnoreCase))
             {
-                await SendRequestAndStoreResponse("/categories/create", HttpMethod.Get);
+                await SendRequestAndStoreResponse(NavigationSteps.page2 + "/create", HttpMethod.Get);
             }
             else if (button.Equals("Create", StringComparison.OrdinalIgnoreCase))
             {
-                await PostForm("/categories/create", GetFormData());
+                await PostForm(NavigationSteps.page2 + "/create", GetFormData());
             }
             else
             {
@@ -74,6 +63,14 @@ namespace OnlineStore.Tests.StepDefinitions
 
         private async Task PostForm(string url, Dictionary<string, string> formData)
         {
+            /*if (url.Contains("product"))
+            {
+                formData["ProductDetail"] = new ProductDetail
+                {
+                    Description = _ctx.ContainsKey("Description") ? (string)_ctx["Description"] : null,
+                    Specifications = _ctx.ContainsKey("Specifications") ? _ctx["Specifications"] : null
+                };
+            }*/
             var content = new FormUrlEncodedContent(formData);
             var response = await _client.PostAsync(url, content);
             _ctx["response"] = response;
@@ -83,6 +80,10 @@ namespace OnlineStore.Tests.StepDefinitions
         {
             if (_ctx.TryGetValue("formData", out var formDataObj) && formDataObj is Dictionary<string, string> formData)
             {
+                foreach(Object stuff in formData)
+                {
+                    Console.WriteLine(stuff.ToString());
+                }
                 return formData;
             }
             return new Dictionary<string, string>();

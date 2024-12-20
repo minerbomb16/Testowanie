@@ -47,5 +47,25 @@ namespace OnlineStore.Tests.StepDefinitions
             var exists = context.Categories.Any(c => c.Name == categoryName);
             Assert.IsTrue(exists, $"Kategoria {categoryName} nie została znaleziona w bazie danych.");
         }
+
+        [Given(@"w bazie danych nie ma produktu ""(.*)""")]
+        public void GivenDatabaseHasNoProduct(string productName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Products.Any(c => c.Name == productName);
+            Assert.IsFalse(exists, $"Produkt {productName} istnieje, a nie powinien.");
+        }
+
+        [Then(@"w bazie danych powinien być produkt ""(.*)""")]
+        public void ThenDatabaseShouldHaveProduct(string productName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Products.Any(c => c.Name == productName);
+            Assert.IsTrue(exists, $"Produkt {productName} nie został znaleziony w bazie danych.");
+        }
     }
 }
