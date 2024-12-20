@@ -14,6 +14,7 @@ namespace OnlineStore.Tests.StepDefinitions
     {
         private readonly HttpClient _client;
         private readonly ScenarioContext _ctx;
+        public static string postResponse = "";
 
         public ButtonsSteps(ScenarioContext scenarioContext)
         {
@@ -73,6 +74,7 @@ namespace OnlineStore.Tests.StepDefinitions
             }*/
             var content = new FormUrlEncodedContent(formData);
             var response = await _client.PostAsync(url, content);
+            postResponse = await response.Content.ReadAsStringAsync();
             _ctx["response"] = response;
         }
 

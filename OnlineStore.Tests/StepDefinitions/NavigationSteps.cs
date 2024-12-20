@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System;
 using OnlineStore.Web;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NuGet.ContentModel;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -68,6 +69,13 @@ namespace OnlineStore.Tests.StepDefinitions
 
             Assert.That(actualPath, Is.EqualTo(expectedPath),
                 $"Oczekiwano: {expectedPage}, otrzymano: {actualPath}");
+        }
+
+        [Then(@"użytkownik powinien zobaczyć komunikat o błędzie ""(.*)""")]
+        public void ShouldSeeError(string expectedError)
+        {
+            Console.WriteLine(ButtonsSteps.postResponse);
+            Assert.IsTrue(ButtonsSteps.postResponse.Contains(expectedError + "</span>"));
         }
 
         private string GetPageUrl(string pageName) => pageName.ToLower() switch

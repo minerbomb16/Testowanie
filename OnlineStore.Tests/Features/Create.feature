@@ -6,15 +6,33 @@
   Background:
     Given baza danych zawiera 3 kategorie, 3 produkty i 3 zamówienia
 
-  Scenario: Utworzenie kategorii "Category 4"
-    Given w bazie danych nie ma kategorii "Category 4"
+  Scenario: Utworzenie kategorii
+    Given w bazie danych nie ma kategorii "<Name>"
     And użytkownik otwiera stronę "Categories"
     When użytkownik klika przycisk "Create New"
-    And użytkownik wpisuje w polu "Name" wartość "Category 4"
+    And użytkownik wpisuje w polu "Name" wartość "<Name>"
     And użytkownik klika przycisk "Create"
-    Then w bazie danych powinna być kategoria "Category 4"
+    Then w bazie danych powinna być kategoria "<Name>"
 
-Scenario Outline: Utworzenie produktu
+    Examples: 
+    | Name       |
+    | Category 4 |
+    | ąść        |
+    | !@#$%^&*() |
+
+Scenario: Walidacja tworzenia kategorii z nieprawidłowymi danymi
+    Given użytkownik otwiera stronę "Categories"
+    When użytkownik klika przycisk "Create New"
+    And użytkownik wpisuje w polu "Name" wartość "<Name>"
+    And użytkownik klika przycisk "Create"
+    Then użytkownik powinien zobaczyć komunikat o błędzie "<ErrorMessage>"
+
+    Examples: 
+    | Name                                                                  | ErrorMessage                |
+    |                                                                       | The Name field is required. |
+    | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | Name too long.              |
+
+Scenario: Utworzenie produktu
   Given w bazie danych nie ma produktu "<Name>"
   And użytkownik otwiera stronę "Products"
   When użytkownik klika przycisk "Create New"
@@ -32,7 +50,7 @@ Scenario Outline: Utworzenie produktu
     | TV          | 5000  | 2          | very expensive  | makes you even dumber |
     | Nigger      | 2137  | 3          | very black      | works for free        |
 
-Scenario Outline: Walidacja tworzenia produktu z nieprawidłowymi danymi
+Scenario: Walidacja tworzenia produktu z nieprawidłowymi danymi
   Given użytkownik otwiera stronę "Products"
   When użytkownik klika przycisk "Create New"
   And użytkownik wpisuje w polu "Name" wartość "<Name>"

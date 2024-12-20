@@ -87,11 +87,11 @@ namespace OnlineStore.Tests.Features
         [NUnit.Framework.TestCaseAttribute("categories", "Edit", "edit", null)]
         [NUnit.Framework.TestCaseAttribute("categories", "Details", "details", null)]
         [NUnit.Framework.TestCaseAttribute("categories", "Delete", "delete", null)]
+        [NUnit.Framework.TestCaseAttribute("products", "Edit", "edit", null)]
+        [NUnit.Framework.TestCaseAttribute("products", "Details", "details", null)]
         [NUnit.Framework.TestCaseAttribute("products", "Delete", "delete", null)]
-        [NUnit.Framework.TestCaseAttribute("products", "Delete", "delete", null)]
-        [NUnit.Framework.TestCaseAttribute("products", "Delete", "delete", null)]
-        [NUnit.Framework.TestCaseAttribute("orders", "Delete", "delete", null)]
-        [NUnit.Framework.TestCaseAttribute("orders", "Delete", "delete", null)]
+        [NUnit.Framework.TestCaseAttribute("orders", "Edit", "edit", null)]
+        [NUnit.Framework.TestCaseAttribute("orders", "Details", "details", null)]
         [NUnit.Framework.TestCaseAttribute("orders", "Delete", "delete", null)]
         public void PrzyciskButtonDlaPierwszegoElementu(string page, string button, string urlSuffix, string[] exampleTags)
         {

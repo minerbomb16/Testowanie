@@ -12,9 +12,9 @@
       | categories | Edit    | edit      |
       | categories | Details | details   |
       | categories | Delete  | delete    |
+      | products   | Edit    | edit      |
+      | products   | Details | details   |
       | products   | Delete  | delete    |
-      | products   | Delete  | delete    |
-      | products   | Delete  | delete    |
-      | orders     | Delete  | delete    |
-      | orders     | Delete  | delete    |
+      | orders     | Edit    | edit      |
+      | orders     | Details | details   |
       | orders     | Delete  | delete    |
