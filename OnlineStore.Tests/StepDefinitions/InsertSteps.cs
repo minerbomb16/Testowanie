@@ -32,6 +32,14 @@ namespace OnlineStore.Tests.StepDefinitions
                     fieldName = "ProductDetail.Specifications";
             }
 
+            if (NavigationSteps.page2.Equals("Orders", StringComparison.OrdinalIgnoreCase))
+            {
+                if (fieldName.Equals("productIds", StringComparison.OrdinalIgnoreCase))
+                    fieldName = "OrderProducts[0].ProductId";
+                else if (fieldName.Equals("quantities", StringComparison.OrdinalIgnoreCase))
+                    fieldName = "OrderProducts[0].Quantity";
+            }
+
             formData[fieldName] = fieldValue;
             _ctx["formData"] = formData;
         }

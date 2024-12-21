@@ -67,5 +67,25 @@ namespace OnlineStore.Tests.StepDefinitions
             var exists = context.Products.Any(c => c.Name == productName);
             Assert.IsTrue(exists, $"Produkt {productName} nie został znaleziony w bazie danych.");
         }
+
+        [Given(@"w bazie danych nie ma zamówienia dla ""(.*)""")]
+        public void GivenDatabaseHasNoOrder(string customerName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Orders.Any(c => c.CustomerName == customerName);
+            Assert.IsFalse(exists, $"Zamówienie dla {customerName} istnieje, a nie powinno.");
+        }
+
+        [Then(@"w bazie danych powinno być zamówienie dla ""(.*)""")]
+        public void ThenDatabaseShouldHaveOrder(string customerName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Orders.Any(c => c.CustomerName == customerName);
+            Assert.IsTrue(exists, $"Zamówienie dla {customerName} nie zostało znalezione w bazie danych.");
+        }
     }
 }

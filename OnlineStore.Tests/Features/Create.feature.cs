@@ -125,6 +125,9 @@ namespace OnlineStore.Tests.Features
 #line 15
     testRunner.Then(string.Format("w bazie danych powinna być kategoria \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 16
+    testRunner.And("użytkownik powinien zobaczyć stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -140,7 +143,7 @@ namespace OnlineStore.Tests.Features
             argumentsOfScenario.Add("Name", name);
             argumentsOfScenario.Add("ErrorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Walidacja tworzenia kategorii z nieprawidłowymi danymi", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -153,20 +156,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
   this.FeatureBackground();
 #line hidden
-#line 24
+#line 25
     testRunner.Given("użytkownik otwiera stronę \"Categories\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 26
     testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 26
+#line 27
     testRunner.And(string.Format("użytkownik wpisuje w polu \"Name\" wartość \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 28
     testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 28
+#line 29
     testRunner.Then(string.Format("użytkownik powinien zobaczyć komunikat o błędzie \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 30
+    testRunner.And("użytkownik powinien zobaczyć stronę \"Categories/Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -187,7 +193,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Description", description);
             argumentsOfScenario.Add("Specifications", specifications);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Utworzenie produktu", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 35
+#line 37
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -200,35 +206,38 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
   this.FeatureBackground();
 #line hidden
-#line 36
+#line 38
   testRunner.Given(string.Format("w bazie danych nie ma produktu \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 37
+#line 39
   testRunner.And("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 40
   testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 39
+#line 41
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Name\" wartość \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 42
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Price\" wartość \"{0}\"", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 41
+#line 43
   testRunner.And(string.Format("użytkownik wpisuje w polu \"CategoryId\" wartość \"{0}\"", categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 42
+#line 44
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Description\" wartość \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 45
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Specifications\" wartość \"{0}\"", specifications), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
+#line 46
   testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 45
+#line 47
   testRunner.Then(string.Format("w bazie danych powinien być produkt \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 48
+  testRunner.And("użytkownik powinien zobaczyć stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -251,7 +260,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Specifications", specifications);
             argumentsOfScenario.Add("ErrorMessage", errorMessage);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Walidacja tworzenia produktu z nieprawidłowymi danymi", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 53
+#line 56
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -264,32 +273,160 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
   this.FeatureBackground();
 #line hidden
-#line 54
+#line 57
   testRunner.Given("użytkownik otwiera stronę \"Products\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 55
+#line 58
   testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 56
+#line 59
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Name\" wartość \"{0}\"", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 57
+#line 60
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Price\" wartość \"{0}\"", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 58
+#line 61
   testRunner.And(string.Format("użytkownik wpisuje w polu \"CategoryId\" wartość \"{0}\"", categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
+#line 62
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Description\" wartość \"{0}\"", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 60
+#line 63
   testRunner.And(string.Format("użytkownik wpisuje w polu \"Specifications\" wartość \"{0}\"", specifications), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 61
+#line 64
   testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 62
+#line 65
   testRunner.Then(string.Format("użytkownik powinien zobaczyć komunikat o błędzie \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 66
+  testRunner.And("użytkownik powinien zobaczyć stronę \"Products/Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Utworzenie zamówienia")]
+        [NUnit.Framework.TestCaseAttribute("Paweł", "01.02.2003", "1", "3", null)]
+        [NUnit.Framework.TestCaseAttribute("Czesio", "05.07.2004", "2", "4", null)]
+        [NUnit.Framework.TestCaseAttribute("Stodolski", "12.11.2001", "3", "5", null)]
+        public void UtworzenieZamowienia(string customerName, string orderDate, string productIds, string quantities, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("CustomerName", customerName);
+            argumentsOfScenario.Add("OrderDate", orderDate);
+            argumentsOfScenario.Add("productIds", productIds);
+            argumentsOfScenario.Add("quantities", quantities);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Utworzenie zamówienia", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 75
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+  this.FeatureBackground();
+#line hidden
+#line 76
+  testRunner.Given(string.Format("w bazie danych nie ma zamówienia dla \"{0}\"", customerName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 77
+  testRunner.And("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 78
+  testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 79
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"CustomerName\" wartość \"{0}\"", customerName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 80
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"OrderDate\" wartość \"{0}\"", orderDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 81
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"productIds\" wartość \"{0}\"", productIds), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 82
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"quantities\" wartość \"{0}\"", quantities), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 83
+  testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 84
+  testRunner.Then(string.Format("w bazie danych powinno być zamówienie dla \"{0}\"", customerName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 85
+  testRunner.And("użytkownik powinien zobaczyć stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Walidacja utworzenia zamówienia z nieprawidłowymi danymi")]
+        [NUnit.Framework.TestCaseAttribute("", "01.02.2003", "1", "3", "The CustomerName field is required.", null)]
+        [NUnit.Framework.TestCaseAttribute("Paweł", "", "2", "4", "The value &#x27;&#x27; is invalid.", null)]
+        [NUnit.Framework.TestCaseAttribute("Czesio", "04.mm.rrrr", "2", "4", "The value &#x27;04.mm.rrrr&#x27; is not valid for OrderDate.", null)]
+        [NUnit.Framework.TestCaseAttribute("Stodolski", "12.11.2001", "-- Select Product --", "5", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Maciuś", "12.11.2001", "1", "0", "", null)]
+        public void WalidacjaUtworzeniaZamowieniaZNieprawidlowymiDanymi(string customerName, string orderDate, string productIds, string quantities, string errorMessage, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("CustomerName", customerName);
+            argumentsOfScenario.Add("OrderDate", orderDate);
+            argumentsOfScenario.Add("productIds", productIds);
+            argumentsOfScenario.Add("quantities", quantities);
+            argumentsOfScenario.Add("ErrorMessage", errorMessage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Walidacja utworzenia zamówienia z nieprawidłowymi danymi", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 93
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+  this.FeatureBackground();
+#line hidden
+#line 94
+  testRunner.Given(string.Format("w bazie danych nie ma zamówienia dla \"{0}\"", customerName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 95
+  testRunner.And("użytkownik otwiera stronę \"Orders\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 96
+  testRunner.When("użytkownik klika przycisk \"Create New\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 97
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"CustomerName\" wartość \"{0}\"", customerName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 98
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"OrderDate\" wartość \"{0}\"", orderDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 99
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"productIds\" wartość \"{0}\"", productIds), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 100
+  testRunner.And(string.Format("użytkownik wpisuje w polu \"quantities\" wartość \"{0}\"", quantities), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 101
+  testRunner.And("użytkownik klika przycisk \"Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 102
+  testRunner.Then(string.Format("użytkownik powinien zobaczyć komunikat o błędzie \"{0}\"", errorMessage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 103
+  testRunner.And("użytkownik powinien zobaczyć stronę \"Orders/Create\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

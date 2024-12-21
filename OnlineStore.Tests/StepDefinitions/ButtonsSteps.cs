@@ -64,14 +64,6 @@ namespace OnlineStore.Tests.StepDefinitions
 
         private async Task PostForm(string url, Dictionary<string, string> formData)
         {
-            /*if (url.Contains("product"))
-            {
-                formData["ProductDetail"] = new ProductDetail
-                {
-                    Description = _ctx.ContainsKey("Description") ? (string)_ctx["Description"] : null,
-                    Specifications = _ctx.ContainsKey("Specifications") ? _ctx["Specifications"] : null
-                };
-            }*/
             var content = new FormUrlEncodedContent(formData);
             var response = await _client.PostAsync(url, content);
             postResponse = await response.Content.ReadAsStringAsync();
