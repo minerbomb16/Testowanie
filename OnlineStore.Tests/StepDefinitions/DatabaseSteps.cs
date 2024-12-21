@@ -87,5 +87,65 @@ namespace OnlineStore.Tests.StepDefinitions
             var exists = context.Orders.Any(c => c.CustomerName == customerName);
             Assert.IsTrue(exists, $"Zamówienie dla {customerName} nie zostało znalezione w bazie danych.");
         }
+
+        [Given(@"kategoria ""(.*)"" istnieje w bazie danych")]
+        public void GivenCategoryExistsInDatabase(string categoryName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Categories.Any(c => c.Name == categoryName);
+            Assert.IsTrue(exists, $"Kategoria {categoryName} nie istnieje w bazie danych.");
+        }
+
+        [Then(@"w bazie danych nie powinna być kategoria ""(.*)""")]
+        public void ThenDatabaseShouldNotHaveCategory(string categoryName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Categories.Any(c => c.Name == categoryName);
+            Assert.IsFalse(exists, $"Kategoria {categoryName} nadal istnieje w bazie danych.");
+        }
+
+        [Given(@"produkt ""(.*)"" istnieje w bazie danych")]
+        public void GivenProductExistsInDatabase(string productName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var product = context.Products.FirstOrDefault(p => p.Name == productName);
+            Assert.IsNotNull(product, $"Produkt {productName} nie istnieje w bazie danych.");
+        }
+
+        [Then(@"w bazie danych nie powinna być produkt ""(.*)""")]
+        public void ThenDatabaseShouldNotHaveProduct(string productName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Products.Any(p => p.Name == productName);
+            Assert.IsFalse(exists, $"Produkt {productName} nadal istnieje w bazie danych.");
+        }
+
+        [Given(@"zamówienie dla ""(.*)"" istnieje w bazie danych")]
+        public void GivenOrderExistsInDatabase(string customerName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var order = context.Orders.FirstOrDefault(o => o.CustomerName == customerName);
+            Assert.IsNotNull(order, $"Zamówienie z CustomerName '{customerName}' nie istnieje w bazie danych.");
+        }
+
+        [Then(@"w bazie danych nie powinna być zamówienie dla ""(.*)""")]
+        public void ThenDatabaseShouldNotHaveOrder(string customerName)
+        {
+            var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
+            var context = factory.Services.GetRequiredService<OnlineStoreContext>();
+
+            var exists = context.Orders.Any(o => o.CustomerName == customerName);
+            Assert.IsFalse(exists, $"Zamówienie z CustomerName '{customerName}' nadal istnieje w bazie danych.");
+        }
     }
 }

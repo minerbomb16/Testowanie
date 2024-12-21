@@ -1,0 +1,391 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (98ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      CREATE DATABASE [OnlineStoreTestDB];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (37ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [OnlineStoreTestDB] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Categories] (
+          [CategoryId] int NOT NULL IDENTITY,
+          [Name] nvarchar(50) NOT NULL,
+          CONSTRAINT [PK_Categories] PRIMARY KEY ([CategoryId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Orders] (
+          [OrderId] int NOT NULL IDENTITY,
+          [CustomerName] nvarchar(max) NOT NULL,
+          [OrderDate] datetime2 NOT NULL,
+          CONSTRAINT [PK_Orders] PRIMARY KEY ([OrderId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] int NOT NULL IDENTITY,
+          [Name] nvarchar(max) NOT NULL,
+          [Price] decimal(18,2) NOT NULL,
+          [CategoryId] int NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId]),
+          CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([CategoryId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [OrderProducts] (
+          [OrderId] int NOT NULL,
+          [ProductId] int NOT NULL,
+          [Quantity] int NOT NULL,
+          CONSTRAINT [PK_OrderProducts] PRIMARY KEY ([OrderId], [ProductId]),
+          CONSTRAINT [FK_OrderProducts_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([OrderId]) ON DELETE CASCADE,
+          CONSTRAINT [FK_OrderProducts_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([ProductId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [ProductDetails] (
+          [ProductDetailId] int NOT NULL IDENTITY,
+          [Description] nvarchar(max) NOT NULL,
+          [Specifications] nvarchar(max) NOT NULL,
+          [ProductId] int NOT NULL,
+          CONSTRAINT [PK_ProductDetails] PRIMARY KEY ([ProductDetailId]),
+          CONSTRAINT [FK_ProductDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([ProductId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_OrderProducts_ProductId] ON [OrderProducts] ([ProductId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX [IX_ProductDetails_ProductId] ON [ProductDetails] ([ProductId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 50), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Categories] USING (
+      VALUES (@p0, 0),
+      (@p1, 1),
+      (@p2, 2)) AS i ([Name], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([Name])
+      VALUES (i.[Name])
+      OUTPUT INSERTED.[CategoryId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Products] USING (
+      VALUES (@p0, @p1, @p2, 0),
+      (@p3, @p4, @p5, 1),
+      (@p6, @p7, @p8, 2)) AS i ([CategoryId], [Name], [Price], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([CategoryId], [Name], [Price])
+      VALUES (i.[CategoryId], i.[Name], i.[Price])
+      OUTPUT INSERTED.[ProductId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Orders] USING (
+      VALUES (@p0, @p1, 0),
+      (@p2, @p3, 1),
+      (@p4, @p5, 2)) AS i ([CustomerName], [OrderDate], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([CustomerName], [OrderDate])
+      VALUES (i.[CustomerName], i.[OrderDate])
+      OUTPUT INSERTED.[OrderId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [OrderProducts] ([OrderId], [ProductId], [Quantity])
+      VALUES (@p0, @p1, @p2),
+      (@p3, @p4, @p5),
+      (@p6, @p7, @p8),
+      (@p9, @p10, @p11);
+Given baza danych zawiera 3 kategorie, 3 produkty i 3 zamówienia
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Categories] AS [c]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Products] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Orders] AS [o]
+-> done: DatabaseSteps.GivenDatabaseHasInitialData() (0.0s)
+Given w bazie danych nie ma zamówienia dla "Stodolski"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__customerName_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+      SELECT CASE
+          WHEN EXISTS (
+              SELECT 1
+              FROM [Orders] AS [o]
+              WHERE [o].[CustomerName] = @__customerName_0) THEN CAST(1 AS bit)
+          ELSE CAST(0 AS bit)
+      END
+-> done: DatabaseSteps.GivenDatabaseHasNoOrder("Stodolski") (0.0s)
+And użytkownik otwiera stronę "Orders"
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [o].[OrderId], [o].[CustomerName], [o].[OrderDate], [s].[OrderId], [s].[ProductId], [s].[Quantity], [s].[ProductId0], [s].[CategoryId], [s].[Name], [s].[Price]
+      FROM [Orders] AS [o]
+      LEFT JOIN (
+          SELECT [o0].[OrderId], [o0].[ProductId], [o0].[Quantity], [p].[ProductId] AS [ProductId0], [p].[CategoryId], [p].[Name], [p].[Price]
+          FROM [OrderProducts] AS [o0]
+          INNER JOIN [Products] AS [p] ON [o0].[ProductId] = [p].[ProductId]
+      ) AS [s] ON [o].[OrderId] = [s].[OrderId]
+      ORDER BY [o].[OrderId], [s].[OrderId], [s].[ProductId]
+-> done: NavigationSteps.OpenPage("Orders") (0.0s)
+When użytkownik klika przycisk "Create New"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProductId], [p].[CategoryId], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]
+-> done: ButtonsSteps.WhenUserClicksGlobalButton("Create New") (0.0s)
+And użytkownik wpisuje w polu "CustomerName" wartość "Stodolski"
+-> done: InsertSteps.WhenUserInsertsValueInField("CustomerName", "Stodolski") (0.0s)
+And użytkownik wpisuje w polu "OrderDate" wartość "12.11.2001"
+-> done: InsertSteps.WhenUserInsertsValueInField("OrderDate", "12.11.2001") (0.0s)
+And użytkownik wpisuje w polu "productIds" wartość "-- Select Product --"
+-> done: InsertSteps.WhenUserInsertsValueInField("productIds", "-- Select Product --") (0.0s)
+And użytkownik wpisuje w polu "quantities" wartość "5"
+-> done: InsertSteps.WhenUserInsertsValueInField("quantities", "5") (0.0s)
+And użytkownik klika przycisk "Create"
+[CustomerName, Stodolski]
+[OrderDate, 12.11.2001]
+[productIds, -- Select Product --]
+[quantities, 5]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProductId], [p].[CategoryId], [p].[Name], [p].[Price]
+      FROM [Products] AS [p]
+-> done: ButtonsSteps.WhenUserClicksGlobalButton("Create") (0.0s)
+Then użytkownik powinien zobaczyć komunikat o błędzie ""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Order - OnlineStore</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0" />
+    <link rel="stylesheet" href="/OnlineStore.Web.styles.css" />
+</head>
+<body>
+    <header b-owlhy5b8ao>
+        <nav b-owlhy5b8ao class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div b-owlhy5b8ao class="container-fluid">
+                <a class="navbar-brand" href="/">OnlineStore</a>
+                <button b-owlhy5b8ao class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span b-owlhy5b8ao class="navbar-toggler-icon"></span>
+                </button>
+                <div b-owlhy5b8ao class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul b-owlhy5b8ao class="navbar-nav flex-grow-1">
+                        <li b-owlhy5b8ao class="nav-item">
+                            <a class="nav-link text-dark" href="/Categories">Categories</a>
+                        </li>
+                        <li b-owlhy5b8ao class="nav-item">
+                            <a class="nav-link text-dark" href="/Products">Products</a>
+                        </li>
+                        <li b-owlhy5b8ao class="nav-item">
+                            <a class="nav-link text-dark" href="/Orders">Orders</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div b-owlhy5b8ao class="container">
+        <main b-owlhy5b8ao role="main" class="pb-3">
+            
+
+<h1>Create Order</h1>
+
+<form method="post" action="/Orders/Create">
+    <div class="form-group">
+        <label class="control-label" for="CustomerName">Customer Name</label>
+        <input class="form-control" placeholder="Enter customer's name" type="text" data-val="true" data-val-required="The CustomerName field is required." id="CustomerName" name="CustomerName" value="Stodolski" />
+        <span class="text-danger field-validation-valid" data-valmsg-for="CustomerName" data-valmsg-replace="true"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="OrderDate">Order Date</label>
+        <input class="form-control" type="date" data-val="true" data-val-required="The OrderDate field is required." id="OrderDate" name="OrderDate" value="12.11.2001" /><input name="__Invariant" type="hidden" value="OrderDate" />
+        <span class="text-danger field-validation-valid" data-valmsg-for="OrderDate" data-valmsg-replace="true"></span>
+    </div>
+
+    <hr />
+
+    <h4>Order Products</h4>
+    <table class="table" id="productsTable">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th style="width: 150px;">Quantity</th>
+                <th style="width: 100px;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select name="productIds" class="form-control" required>
+                        <option value="">-- Select Product --</option>
+                            <option value="1">Product 1</option>
+                            <option value="2">Product 2</option>
+                            <option value="3">Product 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input name="quantities" class="form-control" type="number" min="1" value="1" />
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger remove-product">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" id="addProductButton" class="btn btn-secondary mb-3">Add Another Product</button>
+
+    <div class="form-group mt-3">
+        <input type="submit" value="Create Order" class="btn btn-primary" />
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8I2HPjCdLVBKudtMOtocqYrnjlrWY0h0bssKIVk5SOXua1984mqlT1IczYerLqKQ6EIWfTZRpNlRstC-5sots2Y_Al87cn5VFpf-T8-qfsn2IsBBTNlzR3CdVCuoIRY7E_TFCFFFZRSob600LCmbbOM" /></form>
+
+<!-- Display validation errors -->
+    <div class="text-danger">Invalid products or quantities.</div>
+    <div class="text-danger">The value &#x27;-- Select Product --&#x27; is not valid.</div>
+
+
+        </main>
+    </div>
+
+    <footer b-owlhy5b8ao class="border-top footer text-muted">
+        <div b-owlhy5b8ao class="container">
+            &copy; 2024 - OnlineStore.Web
+        </div>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/js/site.js"></script>
+    
+    <script>
+        // Store the initial list of products
+        const allProducts = [];
+
+                    allProducts.push({ value: "1", text: "Product 1" });
+            
+                    allProducts.push({ value: "2", text: "Product 2" });
+            
+                    allProducts.push({ value: "3", text: "Product 3" });
+            
+        function updateProductOptions() {
+            // Get all selected product IDs
+            const selectedProductIds = Array.from(document.querySelectorAll('select[name="productIds"]'))
+                .map(select => select.value)
+                .filter(value => value !== "");
+
+            // Update options for each select element
+            const selects = document.querySelectorAll('select[name="productIds"]');
+            selects.forEach(select => {
+                const currentValue = select.value;
+
+                // Clear existing options
+                while (select.options.length > 0) {
+                    select.remove(0);
+                }
+
+                // Add the default option
+                const defaultOption = document.createElement('option');
+                defaultOption.value = "";
+                defaultOption.text = "-- Select Product --";
+                select.add(defaultOption);
+
+                // Rebuild options excluding selected products except the current one
+                allProducts.forEach(product => {
+                    if (product.value === currentValue || !selectedProductIds.includes(product.value)) {
+                        const option = document.createElement('option');
+                        option.value = product.value;
+                        option.text = product.text;
+                        select.add(option);
+                    }
+                });
+
+                // Re-select the current value if it's still in the options
+                select.value = currentValue;
+            });
+        }
+
+        function attachSelectChangeEvents() {
+            const selects = document.querySelectorAll('select[name="productIds"]');
+            selects.forEach(select => {
+                select.addEventListener('change', function () {
+                    updateProductOptions();
+                });
+            });
+        }
+
+        document.getElementById("addProductButton").addEventListener("click", function () {
+            const tableBody = document.querySelector("#productsTable tbody");
+            const newRow = tableBody.rows[0].cloneNode(true);
+
+            // Clear the values in the cloned row
+            newRow.querySelector('select').value = "";
+            newRow.querySelector('input').value = "1";
+
+            tableBody.appendChild(newRow);
+
+            // Reattach event listeners
+            attachSelectChangeEvents();
+            updateProductOptions();
+        });
+
+        document.getElementById("productsTable").addEventListener("click", function (event) {
+            if (event.target.classList.contains("remove-product")) {
+                const row = event.target.closest("tr");
+                if (document.querySelectorAll("#productsTable tbody tr").length > 1) {
+                    row.remove();
+                    updateProductOptions();
+                } else {
+                    alert("At least one product must be added.");
+                }
+            }
+        });
+
+        // Attach change event listeners on page load
+        attachSelectChangeEvents();
+        updateProductOptions();
+    </script>
+
+</body>
+</html>
+
+-> done: NavigationSteps.ShouldSeeError("") (0.0s)
+And użytkownik powinien zobaczyć stronę "Orders/Create"
+-> done: NavigationSteps.ShouldBeOnPage("Orders/Create") (0.0s)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [OnlineStoreTestDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      DROP DATABASE [OnlineStoreTestDB];

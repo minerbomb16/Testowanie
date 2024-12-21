@@ -15,13 +15,11 @@ public class OnlineStoreContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Configure one-to-many relationship: Category -> Products
         modelBuilder.Entity<Product>()
             .HasOne(p => p.Category)
             .WithMany(c => c.Products)
             .HasForeignKey(p => p.CategoryId);
 
-        // Configure one-to-one relationship: Product -> ProductDetail
         modelBuilder.Entity<Product>()
             .HasOne(p => p.ProductDetail)
             .WithOne(pd => pd.Product)
@@ -29,7 +27,6 @@ public class OnlineStoreContext : DbContext
             .IsRequired(true)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Configure many-to-many relationship: Order <-> Products
         modelBuilder.Entity<OrderProduct>()
             .HasKey(op => new { op.OrderId, op.ProductId });
 

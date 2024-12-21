@@ -1,9 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineStore.Web.Data;
-using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 [Binding]
 public class Hooks
@@ -19,27 +16,17 @@ public class Hooks
     [BeforeScenario]
     public void BeforeScenario()
     {
-        // Tworzymy fabrykę aplikacji testowej
         _factory = new CustomWebApplicationFactory();
-
-        // Zapamiętujemy w ScenarioContext
         _scenarioContext["factory"] = _factory;
-
-        // Pobieramy kontekst z fabryki
         var context = _factory.Services.GetRequiredService<OnlineStoreContext>();
-
-        // Resetujemy bazę danych
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
-
-        // Seedujemy dane tak jak poprzednio
         SeedDatabase(context);
     }
 
     [AfterScenario]
     public void AfterScenario()
     {
-        // Po zakończeniu scenariusza czyścimy bazę danych
         var factory = (CustomWebApplicationFactory)_scenarioContext["factory"];
         var context = factory.Services.GetRequiredService<OnlineStoreContext>();
 

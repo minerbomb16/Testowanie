@@ -1,11 +1,4 @@
 ﻿using TechTalk.SpecFlow;
-using NUnit.Framework;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
-using OnlineStore.Domain.Models;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -19,8 +12,6 @@ namespace OnlineStore.Tests.StepDefinitions
         public ButtonsSteps(ScenarioContext scenarioContext)
         {
             _ctx = scenarioContext;
-
-            // Pobieramy fabrykę z ScenarioContext
             var factory = (CustomWebApplicationFactory)_ctx["factory"];
             _client = factory.CreateClient();
         }
@@ -37,22 +28,36 @@ namespace OnlineStore.Tests.StepDefinitions
         [When(@"użytkownik klika przycisk ""(.*)""")]
         public async Task WhenUserClicksGlobalButton(string button)
         {
-            if (button.Equals("Home", StringComparison.OrdinalIgnoreCase))
-            {
+            if (button.Equals("Home", StringComparison.OrdinalIgnoreCase)) {
                 await SendRequestAndStoreResponse("/", HttpMethod.Get);
-            }
-            else if (button.Equals("Create New", StringComparison.OrdinalIgnoreCase))
-            {
+            } else if (button.Equals("Create New", StringComparison.OrdinalIgnoreCase)) {
                 await SendRequestAndStoreResponse(NavigationSteps.page2 + "/create", HttpMethod.Get);
-            }
-            else if (button.Equals("Create", StringComparison.OrdinalIgnoreCase))
-            {
+            } else if (button.Equals("Create", StringComparison.OrdinalIgnoreCase)) {
                 await PostForm(NavigationSteps.page2 + "/create", GetFormData());
-            }
-            else
-            {
+            } else {
                 throw new ArgumentException($"Nieznany globalny przycisk: {button}");
             }
+        }
+
+        [When(@"użytkownik potwierdza usunięcie")]
+        public async Task WhenUserConfirmsDeletion()
+        {
+            var url = NavigationSteps.page2.ToLower() switch
+            {
+                "categories" => "/categories/delete/1",
+                "products" => "/products/delete/1",
+                "orders" => "/orders/delete/1",
+                _ => throw new ArgumentException($"Nieznana strona: {NavigationSteps.page2}")
+            };
+
+            var formContent = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("CategoryId", "1")
+            });
+
+            var deleteResponse = await _client.PostAsync(url, formContent);
+            postResponse = await deleteResponse.Content.ReadAsStringAsync();
+            _ctx["response"] = deleteResponse;
         }
 
         private async Task SendRequestAndStoreResponse(string url, HttpMethod method)

@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Web;
 using OnlineStore.Web.Data;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>

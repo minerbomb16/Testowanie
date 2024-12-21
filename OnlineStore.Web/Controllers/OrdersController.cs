@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineStore.Domain.Models;
@@ -19,7 +15,6 @@ namespace OnlineStore.Web.Controllers
             _context = context;
         }
 
-        // GET: Orders
         public async Task<IActionResult> Index()
         {
             var orders = await _context.Orders
@@ -30,66 +25,81 @@ namespace OnlineStore.Web.Controllers
             return View(orders);
         }
 
-
-        // GET: Orders/Create
         public IActionResult Create()
         {
             ViewData["Products"] = new SelectList(_context.Products, "ProductId", "Name");
             return View();
         }
 
-        // POST: Orders/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Order order, int[] productIds, int[] quantities)
+        public async Task<IActionResult> Create([Bind("OrderId,CustomerName,OrderDate")] Order order, int[] productIds, int[] quantities)
         {
+            if (!ModelState.IsValid)
+            {
+                Console.WriteLine("ModelState jest nieprawidłowy. Błędy:");
+                foreach (var kvp in ModelState)
+                {
+                    foreach (var error in kvp.Value.Errors)
+                    {
+                        Console.WriteLine($"- Klucz: '{kvp.Key}', błąd: {error.ErrorMessage}");
+                    }
+                }
+            }
+
+            Console.WriteLine($"DEBUG: order.CustomerName = '{order.CustomerName}'");
+            Console.WriteLine($"DEBUG: order.OrderDate = '{order.OrderDate}'");
+
             if (productIds == null || quantities == null || productIds.Length != quantities.Length)
             {
                 ModelState.AddModelError("", "Invalid products or quantities.");
             }
 
-            // Check for duplicate products
-            if (productIds.GroupBy(p => p).Any(g => g.Count() > 1))
+            if (productIds != null && productIds.GroupBy(p => p).Any(g => g.Count() > 1))
             {
                 ModelState.AddModelError("", "Duplicate products are not allowed.");
             }
 
-            // Check for empty product selections
-            if (productIds.Any(p => p == 0))
+            if (productIds != null && productIds.Any(p => p == 0))
             {
                 ModelState.AddModelError("", "All product selections must be valid.");
             }
 
-            if (ModelState.IsValid)
+            if (quantities != null && quantities.Any(q => q <= 0))
             {
-                _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
-
-                // Add products to the order
-                for (int i = 0; i < productIds.Length; i++)
-                {
-                    var orderProduct = new OrderProduct
-                    {
-                        OrderId = order.OrderId,
-                        ProductId = productIds[i],
-                        Quantity = quantities[i]
-                    };
-                    _context.OrderProducts.Add(orderProduct);
-                }
-
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("", "All quantities must be greater than zero.");
             }
 
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Orders.Add(order);
+                    await _context.SaveChangesAsync();
+
+                    for (int i = 0; i < productIds.Length; i++)
+                    {
+                        var orderProduct = new OrderProduct
+                        {
+                            OrderId = order.OrderId,
+                            ProductId = productIds[i],
+                            Quantity = quantities[i]
+                        };
+                        _context.OrderProducts.Add(orderProduct);
+                    }
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Wyjątek w trakcie zapisywania zamówienia: {ex.Message}");
+                    ModelState.AddModelError("", "Unexpected error while saving the order.");
+                }
+            }
             ViewData["Products"] = new SelectList(_context.Products, "ProductId", "Name");
             return View(order);
         }
 
-
-        // GET: Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -110,7 +120,6 @@ namespace OnlineStore.Web.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -127,7 +136,6 @@ namespace OnlineStore.Web.Controllers
                 return NotFound();
             }
 
-            // Prepare data for view
             ViewData["Products"] = _context.Products.Select(p => new SelectListItem
             {
                 Value = p.ProductId.ToString(),
@@ -137,11 +145,8 @@ namespace OnlineStore.Web.Controllers
             return View(order);
         }
 
-
-        // POST: Orders/Edit/5
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Order order, int[] productIds, int[] quantities)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,CustomerName,OrderDate")] Order order, int[] productIds, int[] quantities)
         {
             if (id != order.OrderId)
             {
@@ -153,16 +158,21 @@ namespace OnlineStore.Web.Controllers
                 ModelState.AddModelError("", "Invalid products or quantities.");
             }
 
-            // Check for duplicate products
-            if (productIds.GroupBy(p => p).Any(g => g.Count() > 1))
+            if (productIds != null &&
+                productIds.GroupBy(p => p).Any(g => g.Count() > 1))
             {
                 ModelState.AddModelError("", "Duplicate products are not allowed.");
             }
 
-            // Check for empty product selections
-            if (productIds.Any(p => p == 0))
+            if (productIds != null &&
+                productIds.Any(p => p == 0))
             {
                 ModelState.AddModelError("", "All product selections must be valid.");
+            }
+
+            if (quantities != null && quantities.Any(q => q <= 0))
+            {
+                ModelState.AddModelError("", "All quantities must be greater than zero.");
             }
 
             if (ModelState.IsValid)
@@ -204,14 +214,10 @@ namespace OnlineStore.Web.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
-            // Reload products if model state is invalid
             ViewData["Products"] = new SelectList(_context.Products, "ProductId", "Name");
             return View(order);
         }
 
-
-        // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -232,9 +238,7 @@ namespace OnlineStore.Web.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var order = await _context.Orders
@@ -246,10 +250,7 @@ namespace OnlineStore.Web.Controllers
                 return NotFound();
             }
 
-            // Remove associated OrderProducts
             _context.OrderProducts.RemoveRange(order.OrderProducts);
-
-            // Remove the order
             _context.Orders.Remove(order);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

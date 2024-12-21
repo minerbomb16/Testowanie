@@ -1,11 +1,4 @@
 ﻿using TechTalk.SpecFlow;
-using NUnit.Framework;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System;
-using OnlineStore.Web;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using NuGet.ContentModel;
 
 namespace OnlineStore.Tests.StepDefinitions
 {
@@ -42,16 +35,11 @@ namespace OnlineStore.Tests.StepDefinitions
         {
             HttpResponseMessage? response = null;
 
-            if (!_ctx.TryGetValue("response", out var responseObj))
-            {
+            if (!_ctx.TryGetValue("response", out var responseObj)) {
                 Assert.Fail("Brak obiektu HttpResponseMessage w ScenarioContext.");
-            }
-            else if (responseObj is HttpResponseMessage httpResponse)
-            {
+            } else if (responseObj is HttpResponseMessage httpResponse) {
                 response = httpResponse;
-            }
-            else
-            {
+            } else {
                 Assert.Fail("Obiekt w ScenarioContext nie jest typu HttpResponseMessage.");
             }
 
@@ -60,8 +48,7 @@ namespace OnlineStore.Tests.StepDefinitions
             string Normalize(string path) => path.TrimStart('/').ToLowerInvariant();
             var actualPath = Normalize(response!.RequestMessage?.RequestUri?.AbsolutePath ?? string.Empty);
 
-            if (expectedPage.Equals("Home", StringComparison.InvariantCultureIgnoreCase))
-            {
+            if (expectedPage.Equals("Home", StringComparison.InvariantCultureIgnoreCase)) {
                 expectedPage = "";
             }
 
