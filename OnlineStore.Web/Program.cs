@@ -6,25 +6,10 @@ using OnlineStore.Web.Binders;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Insert the custom decimal model binder provider.
 builder.Services.AddControllersWithViews(options =>
 {
     options.ModelBinderProviders.Insert(0, new CustomDecimalModelBinderProvider());
 });
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowMobileApp",
-        builder =>
-        {
-            builder.WithOrigins("http://localhost", "https://10.0.2.2", "http://10.0.2.2")
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
-
-
 
 if (builder.Environment.IsEnvironment("Test"))
 {
@@ -37,20 +22,14 @@ else
         options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineStoreDB")));
 }
 
-
-// Add logging configuration.
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 var app = builder.Build();
 
-app.UseCors("AllowMobileApp");
-
-// Set up the supported cultures.
 var defaultCulture = new CultureInfo("pl-PL");
 var supportedCultures = new[] { defaultCulture };
 
-// Configure the localization middleware.
 app.UseRequestLocalization(new RequestLocalizationOptions
 {
     DefaultRequestCulture = new RequestCulture(defaultCulture),
@@ -58,15 +37,14 @@ app.UseRequestLocalization(new RequestLocalizationOptions
     SupportedUICultures = supportedCultures
 });
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage(); // Detailed error pages in development.
+    app.UseDeveloperExceptionPage();
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error"); // Generic error handler.
-    app.UseHsts(); // Enforce HTTPS in production.
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -74,14 +52,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization(); // Ensure proper authorization handling.
+app.UseAuthorization();
 
-// Map default routes.
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Add global error logging for unhandled exceptions.
 app.Use(async (context, next) =>
 {
     try

@@ -1,0 +1,156 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (151ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      CREATE DATABASE [OnlineStoreTestDB];
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [OnlineStoreTestDB] SET READ_COMMITTED_SNAPSHOT ON;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Categories] (
+          [CategoryId] int NOT NULL IDENTITY,
+          [Name] nvarchar(50) NOT NULL,
+          CONSTRAINT [PK_Categories] PRIMARY KEY ([CategoryId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Orders] (
+          [OrderId] int NOT NULL IDENTITY,
+          [CustomerName] nvarchar(max) NOT NULL,
+          [OrderDate] datetime2 NOT NULL,
+          CONSTRAINT [PK_Orders] PRIMARY KEY ([OrderId])
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [Products] (
+          [ProductId] int NOT NULL IDENTITY,
+          [Name] nvarchar(max) NOT NULL,
+          [Price] decimal(18,2) NOT NULL,
+          [CategoryId] int NOT NULL,
+          CONSTRAINT [PK_Products] PRIMARY KEY ([ProductId]),
+          CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([CategoryId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [OrderProducts] (
+          [OrderId] int NOT NULL,
+          [ProductId] int NOT NULL,
+          [Quantity] int NOT NULL,
+          CONSTRAINT [PK_OrderProducts] PRIMARY KEY ([OrderId], [ProductId]),
+          CONSTRAINT [FK_OrderProducts_Orders_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [Orders] ([OrderId]) ON DELETE CASCADE,
+          CONSTRAINT [FK_OrderProducts_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([ProductId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE TABLE [ProductDetails] (
+          [ProductDetailId] int NOT NULL IDENTITY,
+          [Description] nvarchar(max) NOT NULL,
+          [Specifications] nvarchar(max) NOT NULL,
+          [ProductId] int NOT NULL,
+          CONSTRAINT [PK_ProductDetails] PRIMARY KEY ([ProductDetailId]),
+          CONSTRAINT [FK_ProductDetails_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([ProductId]) ON DELETE CASCADE
+      );
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_OrderProducts_ProductId] ON [OrderProducts] ([ProductId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE UNIQUE INDEX [IX_ProductDetails_ProductId] ON [ProductDetails] ([ProductId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 50), @p2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Categories] USING (
+      VALUES (@p0, 0),
+      (@p1, 1),
+      (@p2, 2)) AS i ([Name], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([Name])
+      VALUES (i.[Name])
+      OUTPUT INSERTED.[CategoryId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Products] USING (
+      VALUES (@p0, @p1, @p2, 0),
+      (@p3, @p4, @p5, 1),
+      (@p6, @p7, @p8, 2)) AS i ([CategoryId], [Name], [Price], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([CategoryId], [Name], [Price])
+      VALUES (i.[CategoryId], i.[Name], i.[Price])
+      OUTPUT INSERTED.[ProductId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      MERGE [Orders] USING (
+      VALUES (@p0, @p1, 0),
+      (@p2, @p3, 1),
+      (@p4, @p5, 2)) AS i ([CustomerName], [OrderDate], _Position) ON 1=0
+      WHEN NOT MATCHED THEN
+      INSERT ([CustomerName], [OrderDate])
+      VALUES (i.[CustomerName], i.[OrderDate])
+      OUTPUT INSERTED.[OrderId], i._Position;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [OrderProducts] ([OrderId], [ProductId], [Quantity])
+      VALUES (@p0, @p1, @p2),
+      (@p3, @p4, @p5),
+      (@p6, @p7, @p8),
+      (@p9, @p10, @p11);
+Given baza danych zawiera 3 kategorie, 3 produkty i 3 zamówienia
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Categories] AS [c]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Products] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Orders] AS [o]
+-> done: DatabaseSteps.GivenDatabaseHasInitialData() (0.0s)
+Given użytkownik otwiera stronę "products"
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[ProductId], [p].[CategoryId], [p].[Name], [p].[Price], [c].[CategoryId], [c].[Name]
+      FROM [Products] AS [p]
+      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[CategoryId]
+-> done: NavigationSteps.OpenPage("products") (0.0s)
+When użytkownik klika przycisk "Delete" dla pierwszego elementu
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [p].[ProductId], [p].[CategoryId], [p].[Name], [p].[Price], [c].[CategoryId], [c].[Name]
+      FROM [Products] AS [p]
+      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[CategoryId]
+      WHERE [p].[ProductId] = @__id_0
+-> done: ButtonsSteps.WhenUserClicksButtonForFirstElement("Delete") (0.0s)
+Then użytkownik powinien zostać przeniesiony na stronę "/products/delete/1"
+-> done: NavigationSteps.ShouldBeOnPage("/products/delete/1") (0.0s)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      IF SERVERPROPERTY('EngineEdition') <> 5
+      BEGIN
+          ALTER DATABASE [OnlineStoreTestDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+      END;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+      DROP DATABASE [OnlineStoreTestDB];

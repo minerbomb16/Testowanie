@@ -16,10 +16,12 @@ Scenario: Utworzenie produktu
   And użytkownik powinien zobaczyć stronę "Products"
 
   Examples:
-    | Name        | Price | CategoryId | Description     | Specifications        |
-    | Sausage     | 7     | 1          | very tasty      | makes you less hungry |
-    | TV          | 5000  | 2          | very expensive  | makes you even dumber |
-    | Nigger      | 2137  | 3          | very black      | works for free        |
+    | Name        | Price       | CategoryId | Description         | Specifications        |
+    | Paper       | 1           | 1          | very white          | makes you fell good   |
+    | TV          | 5000        | 2          | expensive but good  | makes you dumber      |
+    | World       | 9999999999  | 3          | everything          | works for free        |
+    | Pr1         | 10.23       | 2          | expensive but good  | something 1           |
+    | Pr2         | 10,23       | 1          | expensive but good  | something 2           |
 
 Scenario: Walidacja tworzenia produktu z nieprawidłowymi danymi
   Given użytkownik otwiera stronę "Products"
